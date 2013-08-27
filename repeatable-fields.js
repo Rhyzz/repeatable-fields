@@ -1,7 +1,9 @@
 /*
-* jQuery Repeatable Fields
-* Copyright (c) 2013 Rhyzz
-* License GPL
+ * jQuery Repeatable Fields v0.1
+ * http://www.rhyzz.com/repeatable-fields/
+ *
+ * Copyright (c) 2013 Rhyzz
+ * License GPL
 */
 (function($) {
 	$.fn.repeatable_fields = function(custom_settings) {
