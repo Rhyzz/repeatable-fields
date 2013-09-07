@@ -1,17 +1,17 @@
 /*
- * jQuery Repeatable Fields v0.1
+ * jQuery Repeatable Fields v0.2
  * http://www.rhyzz.com/repeatable-fields.html
  *
  * Copyright (c) 2013 Rhyzz
  * License GPL
 */
+
 (function($) {
 	$.fn.repeatable_fields = function(custom_settings) {
 		var default_settings = {
 			wrapper: '.wrapper',
 			container: '.container',
 			row: '.row',
-			cell: '.cell',
 			add: '.add',
 			remove: '.remove',
 			move: '.move',
@@ -75,17 +75,10 @@
 					}
 				});
 
-				if(settings.is_sortable == true && $.ui.sortable !== undefined) {
+				if(settings.is_sortable == true && typeof $.ui !== 'undefined' && typeof $.ui.sortable !== 'undefined') {
 					$(wrapper).find(settings.container).sortable({
 						handle: settings.move,
-						row: $(settings.row, '>'),
-						helper: function(element, ui) {
-							ui.children().each(function() {
-								jQuery(this).width(jQuery(this).width());
-							});
-	
-							return ui;
-						},
+						row: $(settings.row, '>')
 					});
 				}
 			});
@@ -100,7 +93,7 @@
 		function after_add(container, new_row) {
 			var row_count = $(container).children(settings.row).length;
 
-			$('> ' + settings.cell + ' > *', new_row).each(function() {
+			$('*', new_row).each(function() {
 				$.each(this.attributes, function(index, element) {
 					this.value = this.value.replace(/{{row-count-placeholder}}/, row_count - 1);
 				});
