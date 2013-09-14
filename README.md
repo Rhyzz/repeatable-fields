@@ -89,7 +89,7 @@ after_remove: null,
 <dd>Specifies an element within the row which let's you reposition the current row.</dd>
 
 <dt>template</dt>
-<dd>Specifies an element within the container which contains an HTML template for the row. This should be a <script> element. If your template is going to have a nested template
+<dd>Specifies an element within the container which contains an HTML template for the row. This should be a &lt;script&gt; element. If your template is going to have a nested template
 then you must set the type attribute of your script to application/json and you must convert the content to JSON format.
 </dd>
 
