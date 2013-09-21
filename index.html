@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Repeatable-fields by Rhyzz</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Repeatable-fields</h1>
+        <p>Repeatable Fields</p>
+
+        <p class="view"><a href="https://github.com/Rhyzz/repeatable-fields">View the Project on GitHub <small>Rhyzz/repeatable-fields</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/Rhyzz/repeatable-fields/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/Rhyzz/repeatable-fields/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/Rhyzz/repeatable-fields">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="repeatable-fields" class="anchor" href="#repeatable-fields"><span class="octicon octicon-link"></span></a>Repeatable Fields</h1>
+
+<p><a href="http://www.rhyzz.com/repeatable-fields.html">Plugin's Homepage with Demo</a></p>
+
+<h2>
+<a name="description" class="anchor" href="#description"><span class="octicon octicon-link"></span></a>Description</h2>
+
+<p>Repeatable Fields is a jQuery plugin which let's you create a set of fields that can be made to repeat. You can do the following to a field that is repeatable:</p>
+
+<ul>
+<li>Add new instance</li>
+<li>Remove existing instance</li>
+<li>Reposition an instance</li>
+</ul><p>The functionality that is provided by this plugin can also be referred to as:</p>
+
+<ul>
+<li>Dynamic Fields Plugin</li>
+<li>Dynamic Rows plugin</li>
+<li>Add Remove Rows Plugin</li>
+</ul><h3>
+<a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>Example</h3>
+
+<h4>
+<a name="html" class="anchor" href="#html"><span class="octicon octicon-link"></span></a>HTML</h4>
+
+<pre><code>&lt;div class="repeat"&gt;
+    &lt;table class="wrapper" width="100%"&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;td width="10%" colspan="4"&gt;&lt;span class="add"&gt;Add&lt;/span&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody class="container"&gt;
+        &lt;script type="text/html" class="template"&gt;
+        &lt;tr class="row"&gt;
+            &lt;td width="10%"&gt;&lt;span class="move"&gt;Move&lt;/span&gt;&lt;/td&gt;
+
+            &lt;td width="10%"&gt;An Input Field&lt;/td&gt;
+
+            &lt;td width="70%"&gt;
+                &lt;input type="text" name="an-input-field[{{row-count-placeholder}}]" /&gt;
+            &lt;/td&gt;
+
+            &lt;td width="10%"&gt;&lt;span class="remove"&gt;Remove&lt;/span&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/script&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h4>
+<a name="javascript" class="anchor" href="#javascript"><span class="octicon octicon-link"></span></a>JavaScript</h4>
+
+<pre><code>jQuery(function() {
+    jQuery('.repeat').each(function() {
+        jQuery(this).repeatable_fields();
+    });
+});
+</code></pre>
+
+<h2>
+<a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h2>
+
+<pre><code>wrapper: '.wrapper',
+container: '.container',
+row: '.row',
+add: '.add',
+remove: '.remove',
+move: '.move',
+template: '.template',
+before_add: null,
+after_add: after_add,
+before_remove: null,
+after_remove: null,
+</code></pre>
+
+<dl>
+<dt>wrapper</dt>
+<dd>Specifies an element that acts as a wrapper.</dd>
+
+<dt>container</dt>
+<dd>Specifies an element within the wrapper which acts as a container.</dd>
+
+<dt>row</dt>
+<dd>Specifies an element within the container that acts as a row holder. The row is what is repeated.</dd>
+
+<dt>add</dt>
+<dd>Specifies an element within the wrapper which let's you add more more</dd>
+
+<dt>remove</dt>
+<dd>Specifies an element within the row which let's you remove the current row</dd>
+
+<dt>move</dt>
+<dd>Specifies an element within the row which let's you reposition the current row.</dd>
+
+<dt>template</dt>
+<dd>Specifies an element within the container which contains an HTML template for the row. This should be a &lt;script&gt; element. If your template is going to have a nested template
+then you must set the type attribute of your script to application/json and you must convert the content to JSON format.
+</dd>
+
+<dt>before_add</dt>
+<dd>Specifies a function to run before a row is added</dd>
+
+<dt>after_add</dt>
+<dd>Specifies a function to run after a row is added</dd>
+
+<dt>before_remove</dt>
+<dd>Specifies a function to run before a row is removed</dd>
+
+<dt>after_remove</dt>
+<dd>Specifies a function to run after a row is removed</dd>
+</dl>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/Rhyzz">Rhyzz</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
