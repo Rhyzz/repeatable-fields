@@ -28,8 +28,7 @@ The functionality that is provided by this plugin can also be referred to as:
     			</tr>
     		</thead>
     		<tbody class="container">
-    		<script type="text/html" class="template">
-    		<tr class="row">
+    		<tr class="template row">
     			<td width="10%"><span class="move">Move</span></td>
     	
     			<td width="10%">An Input Field</td>
@@ -40,7 +39,6 @@ The functionality that is provided by this plugin can also be referred to as:
     			
     			<td width="10%"><span class="remove">Remove</span></td>
     		</tr>
-    		</script>
     		</tbody>
     	</table>
     </div>
@@ -89,9 +87,7 @@ after_remove: null,
 <dd>Specifies an element within the row which let's you reposition the current row.</dd>
 
 <dt>template</dt>
-<dd>Specifies an element within the container which contains an HTML template for the row. This should be a &lt;script&gt; element. If your template is going to have a nested template
-then you must set the type attribute of your script to application/json and you must convert the content to JSON format.
-</dd>
+<dd>Specifies an element within the container which acts as a row template.</dd>
 
 <dt>before_add</dt>
 <dd>Specifies a function to run before a row is added</dd>

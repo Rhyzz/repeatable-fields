@@ -1,5 +1,5 @@
 /*
- * jQuery Repeatable Fields v0.2
+ * jQuery Repeatable Fields v1.0
  * http://www.rhyzz.com/repeatable-fields.html
  *
  * Copyright (c) 2013 Rhyzz
@@ -26,7 +26,6 @@
 		var settings = $.extend(default_settings, custom_settings);
 
 		// Initialize all repeatable field wrappers
-
 		initialize(this);
 
 		function initialize(parent) {
@@ -35,14 +34,20 @@
 
 				var container = $(wrapper).children(settings.container);
 
+				// Disable all form elements inside the row template
+				$(container).children(settings.template).hide().find(':input').each(function() {
+					jQuery(this).prop('disabled', true);
+				});
+
 				$(wrapper).on('click', settings.add, function(event) {
 					event.stopImmediatePropagation();
 
-					var row_template = $(container).children(settings.template).html();
+					var row_template = $($(container).children(settings.template).clone().removeClass(settings.template.replace('.', ''))[0].outerHTML);
 
-					if($(container).children(settings.template).attr('type') == 'application/json') {
-						var row_template = JSON.parse(row_template);
-					}
+					// Enable all form elements inside the row template
+					jQuery(row_template).find(':input').each(function() {
+						jQuery(this).prop('disabled', false);
+					});
 
 					if(typeof settings.before_add === 'function') {
 						settings.before_add(container);
@@ -55,7 +60,6 @@
 					}
 
 					// The new row might have it's own repeatable field wrappers so initialize them too
-
 					initialize(new_row);
 				});
 
@@ -84,14 +88,10 @@
 			});
 		}
 
-		/*
-			TODO:
-			This function doesn't take into consideration multiple references to {{row-count-placeholder}}'s so this might not work with nested
-			repeatable field wrappers
-		*/
-
 		function after_add(container, new_row) {
-			var row_count = $(container).children(settings.row).length;
+			var row_count = $(container).children(settings.row).filter(function() {
+				return !jQuery(this).hasClass(settings.template.replace('.', ''));
+			}).length;
 
 			$('*', new_row).each(function() {
 				$.each(this.attributes, function(index, element) {
