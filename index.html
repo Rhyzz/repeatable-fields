@@ -73,8 +73,7 @@
             &lt;/tr&gt;
         &lt;/thead&gt;
         &lt;tbody class="container"&gt;
-        &lt;script type="text/html" class="template"&gt;
-        &lt;tr class="row"&gt;
+        &lt;tr class="template row"&gt;
             &lt;td width="10%"&gt;&lt;span class="move"&gt;Move&lt;/span&gt;&lt;/td&gt;
 
             &lt;td width="10%"&gt;An Input Field&lt;/td&gt;
@@ -85,7 +84,6 @@
 
             &lt;td width="10%"&gt;&lt;span class="remove"&gt;Remove&lt;/span&gt;&lt;/td&gt;
         &lt;/tr&gt;
-        &lt;/script&gt;
         &lt;/tbody&gt;
     &lt;/table&gt;
 &lt;/div&gt;
@@ -137,9 +135,7 @@ after_remove: null,
 <dd>Specifies an element within the row which let's you reposition the current row.</dd>
 
 <dt>template</dt>
-<dd>Specifies an element within the container which contains an HTML template for the row. This should be a &lt;script&gt; element. If your template is going to have a nested template
-then you must set the type attribute of your script to application/json and you must convert the content to JSON format.
-</dd>
+<dd>Specifies an element within the container which acts as a row template.</dd>
 
 <dt>before_add</dt>
 <dd>Specifies a function to run before a row is added</dd>
