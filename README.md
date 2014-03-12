@@ -16,6 +16,10 @@ The functionality that is provided by this plugin can also be referred to as:
 * Dynamic Rows plugin
 * Add Remove Rows Plugin
 
+## Requirements
+
+This plugin requires [jQuery](http://jquery.com/) and [jQuery UI Sortable](https://jqueryui.com/sortable/).
+
 ### Example
 
 #### HTML
