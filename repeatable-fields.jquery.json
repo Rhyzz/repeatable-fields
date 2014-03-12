@@ -1,0 +1,34 @@
+{
+	"name": "repeatable-fields",
+	"version": "1.0.1",
+	"title": "Repeatable Fields",
+	"author": {
+		"name": "Rhyzz",
+		"url": "http://www.rhyzz.com"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://opensource.org/licenses/MIT"
+		}
+	],
+	"dependencies": {
+		"jquery": ">=1.9.0",
+		"ui.core": "1.10.3",
+		"ui.widget": "1.10.3",
+		"ui.mouse": "1.10.3",
+		"ui.sortable": "1.10.3"
+	},
+	"description": "Repeatable Fields is a jQuery plugin which let's you create a set of fields that can be made to repeat.",
+	"keywords": [
+		"repeatable-fields",
+		"dynamic-fields",
+		"dynamic-rows",
+		"add-remove-rows"
+	],
+	"homepage": "http://www.rhyzz.com/repeatable-fields.html",
+	"docs": "http://www.rhyzz.com/repeatable-fields.html",
+	"demo": "http://www.rhyzz.com/repeatable-fields.html",
+	"download": "http://www.rhyzz.com/repeatable-fields.html",
+	"bugs": "https://github.com/Rhyzz/repeatable-fields/issues"
+}
