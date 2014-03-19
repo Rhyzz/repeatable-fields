@@ -21,6 +21,9 @@
 			after_add: after_add,
 			before_remove: null,
 			after_remove: null,
+			after_move: null,
+	                during_move: null,
+        	   	after_move: null
 		}
 
 		var settings = $.extend(default_settings, custom_settings);
@@ -82,7 +85,9 @@
 				if(settings.is_sortable == true && typeof $.ui !== 'undefined' && typeof $.ui.sortable !== 'undefined') {
 					$(wrapper).find(settings.container).sortable({
 						handle: settings.move,
-						row: $(settings.row, '>')
+						row: $(settings.row, '>'),
+			                        sort: settings.during_move,						
+						stop: settings.after_move
 					});
 				}
 			});
