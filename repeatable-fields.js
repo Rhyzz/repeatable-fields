@@ -1,8 +1,8 @@
 /*
- * jQuery Repeatable Fields v1.0.6
+ * jQuery Repeatable Fields v1.1
  * http://www.rhyzz.com/repeatable-fields.html
  *
- * Copyright (c) 2013 Rhyzz
+ * Copyright (c) 2014 Rhyzz
  * License MIT
 */
 
@@ -21,6 +21,7 @@
 			after_add: after_add,
 			before_remove: null,
 			after_remove: null,
+			sortable_options: null,
 		}
 
 		var settings = $.extend(default_settings, custom_settings);
@@ -79,11 +80,12 @@
 					}
 				});
 
-				if(settings.is_sortable == true && typeof $.ui !== 'undefined' && typeof $.ui.sortable !== 'undefined') {
-					$(wrapper).find(settings.container).sortable({
-						handle: settings.move,
-						row: $(settings.row, '>')
-					});
+				if(settings.is_sortable === true && typeof $.ui !== 'undefined' && typeof $.ui.sortable !== 'undefined') {
+					var sortable_options = settings.sortable_options !== null ? settings.sortable_options : {};
+
+					sortable_options.handle = settings.move;
+
+					$(wrapper).find(settings.container).sortable(sortable_options);
 				}
 			});
 		}

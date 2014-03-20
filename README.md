@@ -69,6 +69,7 @@ before_add: null,
 after_add: after_add,
 before_remove: null,
 after_remove: null,
+sortable_options: null,
 ```
 
 <dl>
@@ -104,4 +105,7 @@ after_remove: null,
 
 <dt>after_remove</dt>
 <dd>Specifies a function to run after a row is removed</dd>
+
+<dt>sortable_options</dt>
+<dd>Specifies an object that can contain Options, Methods and Events which are passed to jQuery UI Sortable</dd>
 </dl>
