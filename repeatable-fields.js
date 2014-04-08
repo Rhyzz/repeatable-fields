@@ -1,5 +1,5 @@
 /*
- * jQuery Repeatable Fields v1.1.3
+ * jQuery Repeatable Fields v1.1.4
  * http://www.rhyzz.com/repeatable-fields.html
  *
  * Copyright (c) 2014 Rhyzz
