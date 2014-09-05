@@ -80,7 +80,7 @@
 					var row = $(this).parents(settings.row).first();
 
 					if(typeof settings.before_remove === 'function') {
-						settings.before_remove(container, row);
+					    settings.before_remove(container, row);
 					}
 
 					row.remove();
@@ -109,6 +109,16 @@
 
 					$(wrapper).find(settings.container).sortable(sortable_options);
 				}
+
+
+				var rows = $(container).children(settings.row).filter(function () {
+				        return !jQuery(this).hasClass(settings.template.replace('.', ''));
+				    }),
+                    add_elm = $(wrapper).find(settings.add);
+
+				for (var i = rows.length; i < settings.minimum; i++)
+				    add_elm.click();
+
 
 				refresh(container);
 			});
