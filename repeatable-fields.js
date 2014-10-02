@@ -37,7 +37,7 @@
 
 				// Disable all form elements inside the row template
 				$(container).children(settings.template).hide().find(':input').each(function() {
-					jQuery(this).prop('disabled', true);
+					$(this).prop('disabled', true);
 				});
 
 				$(wrapper).on('click', settings.add, function(event) {
@@ -46,8 +46,8 @@
 					var row_template = $($(container).children(settings.template).clone().removeClass(settings.template.replace('.', ''))[0].outerHTML);
 
 					// Enable all form elements inside the row template
-					jQuery(row_template).find(':input').each(function() {
-						jQuery(this).prop('disabled', false);
+					$(row_template).find(':input').each(function() {
+						$(this).prop('disabled', false);
 					});
 
 					if(typeof settings.before_add === 'function') {
@@ -92,7 +92,7 @@
 
 		function after_add(container, new_row) {
 			var row_count = $(container).children(settings.row).filter(function() {
-				return !jQuery(this).hasClass(settings.template.replace('.', ''));
+				return !$(this).hasClass(settings.template.replace('.', ''));
 			}).length;
 
 			$('*', new_row).each(function() {
