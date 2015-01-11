@@ -1,8 +1,8 @@
 /*
- * jQuery Repeatable Fields v1.2
+ * jQuery Repeatable Fields v1.3.0
  * http://www.rhyzz.com/repeatable-fields.html
  *
- * Copyright (c) 2014 Rhyzz
+ * Copyright (c) 2015 Rhyzz
  * License MIT
 */
 
@@ -40,19 +40,11 @@
 					$(this).prop('disabled', true);
 				});
 
-				var row_count = 1;
+				var row_count = $(container).children(settings.row).filter(function() {
+					return !$(this).hasClass(settings.template.replace('.', ''));
+				}).length;
 
-				$(container).children(settings.row).each(function() {
-					if($(this).hasClass(settings.template.replace('.', '')) === true) {
-						return true;
-					}
-
-					var current_row_count = $(this).data('rf-row-count');
-
-					$(this).attr('data-rf-row-count', row_count);
-
-					row_count++;
-				});
+				$(container).attr('data-rf-row-count', row_count);
 
 				$(wrapper).on('click', settings.add, function(event) {
 					event.stopImmediatePropagation();
@@ -105,37 +97,17 @@
 		}
 
 		function after_add(container, new_row) {
-			var row_count;
+			var row_count = $(container).attr('data-rf-row-count');
 
-			$(new_row).parent(settings.container).children(settings.row).each(function() {
-				if($(this).hasClass(settings.template.replace('.', '')) === true) {
-					return true;
-				}
-
-				var current_row_count = $(this).data('rf-row-count');
-
-				if(typeof current_row_count === 'undefined') {
-					var current_row_count = $(container).children(settings.row).filter(function() {
-						return !$(this).hasClass(settings.template.replace('.', ''));
-					}).length;
-				}
-				else {
-					current_row_count++;
-				}
-
-				if(typeof row_count === 'undefined' || current_row_count > row_count) {
-					row_count = current_row_count;
-				}
-
-			});
-
-			$(new_row).attr('data-rf-row-count', row_count);
+			row_count++;
 
 			$('*', new_row).each(function() {
 				$.each(this.attributes, function(index, element) {
 					this.value = this.value.replace(/{{row-count-placeholder}}/, row_count - 1);
 				});
 			});
+
+			$(container).attr('data-rf-row-count', row_count);
 		}
 	}
 })(jQuery);
