@@ -22,6 +22,7 @@
 			before_remove: null,
 			after_remove: null,
 			sortable_options: null,
+			row_count_placeholder: /{{row-count-placeholder}}/
 		}
 
 		var settings = $.extend(default_settings, custom_settings);
@@ -103,7 +104,7 @@
 
 			$('*', new_row).each(function() {
 				$.each(this.attributes, function(index, element) {
-					this.value = this.value.replace(/{{row-count-placeholder}}/, row_count - 1);
+					this.value = this.value.replace(settings.row_count_placeholder, row_count - 1);
 				});
 			});
 
