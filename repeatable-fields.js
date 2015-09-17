@@ -1,5 +1,5 @@
 /*
- * jQuery Repeatable Fields v1.3.1
+ * jQuery Repeatable Fields v1.4.0
  * http://www.rhyzz.com/repeatable-fields.html
  *
  * Copyright (c) 2014-2015 Rhyzz
@@ -22,9 +22,10 @@
 			before_remove: null,
 			after_remove: null,
 			sortable_options: null,
+			row_count_placeholder: '{{row-count-placeholder}}',
 		}
 
-		var settings = $.extend(default_settings, custom_settings);
+		var settings = $.extend({}, default_settings, custom_settings);
 
 		// Initialize all repeatable field wrappers
 		initialize(this);
@@ -63,7 +64,7 @@
 					var new_row = $(row_template).show().appendTo(container);
 
 					if(typeof settings.after_add === 'function') {
-						settings.after_add(container, new_row);
+						settings.after_add(container, new_row, after_add);
 					}
 
 					// The new row might have it's own repeatable field wrappers so initialize them too
@@ -103,7 +104,7 @@
 
 			$('*', new_row).each(function() {
 				$.each(this.attributes, function(index, element) {
-					this.value = this.value.replace(/{{row-count-placeholder}}/, row_count - 1);
+					this.value = this.value.replace(settings.row_count_placeholder, row_count - 1);
 				});
 			});
 
