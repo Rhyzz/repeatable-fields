@@ -65,11 +65,13 @@ add: '.add',
 remove: '.remove',
 move: '.move',
 template: '.template',
+is_sortable: true,
 before_add: null,
 after_add: after_add,
 before_remove: null,
 after_remove: null,
 sortable_options: null,
+row_count_placeholder: '{{row-count-placeholder}}',
 ```
 
 <dl>
@@ -94,6 +96,9 @@ sortable_options: null,
 <dt>template</dt>
 <dd>Specifies an element within the container which acts as a row template.</dd>
 
+<dt>is_sortable</dt>
+<dd>Specifies whether rows can be sorted</dd>
+
 <dt>before_add</dt>
 <dd>Specifies a function to run before a row is added</dd>
 
@@ -108,4 +113,7 @@ sortable_options: null,
 
 <dt>sortable_options</dt>
 <dd>Specifies an object that can contain Options, Methods and Events which are passed to jQuery UI Sortable</dd>
+
+<dt>row_count_placeholder</dt>
+<dd>Specifies the row count placeholder to be used</dd>
 </dl>
