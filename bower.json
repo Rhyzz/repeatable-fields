@@ -7,10 +7,7 @@
 	],
 	"dependencies": {
 		"jquery": ">=1.9.0",
-		"jquery-ui.ui.core": ">=1.10.3",
-		"jquery-ui.ui.widget": ">=1.10.3",
-		"jquery-ui.ui.mouse": ">=1.10.3",
-		"jquery-ui.ui.sortable": ">=1.10.3"
+		"jquery-ui": ">=1.10.3"
 	},
 	"keywords": [
 		"repeatable-fields",
