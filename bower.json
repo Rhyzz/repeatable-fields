@@ -1,7 +1,7 @@
 {
 	"name": "repeatable-fields",
 	"description": "Repeatable Fields is a jQuery plugin which let's you create a set of fields that can be made to repeat.",
-	"version": "1.4.6",
+	"version": "1.4.8",
 	"main": [
 		"repeatable-fields.js"
 	],
@@ -17,9 +17,9 @@
 	],
 	"authors": [
 		{
-			"name": "Rhyzz",
-			"homepage": "http://www.rhyzz.com"
-		}
+		"name": "Rhyzz",
+		"homepage": "http://www.rhyzz.com"
+	}
 	],
 	"homepage": "http://www.rhyzz.com/repeatable-fields.html",
 	"repository": {
