@@ -50,16 +50,16 @@
 				$(wrapper).on('click', settings.add, function(event) {
 					event.stopImmediatePropagation();
 
+					if(typeof settings.before_add === 'function') {
+						settings.before_add(container);
+					}
+
 					var row_template = $($(container).children(settings.template).clone().removeClass(settings.template.replace('.', ''))[0].outerHTML);
 
 					// Enable all form elements inside the row template
 					$(row_template).find(':input').each(function() {
 						$(this).prop('disabled', false);
 					});
-
-					if(typeof settings.before_add === 'function') {
-						settings.before_add(container);
-					}
 
 					var new_row = $(row_template).show().appendTo(container);
 
