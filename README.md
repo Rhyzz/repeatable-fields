@@ -33,7 +33,12 @@ This plugin requires [jQuery](http://jquery.com/) and [jQuery UI Sortable](https
     		</thead>
     		<tbody class="container">
     		<tr class="template row">
-    			<td width="10%"><span class="move">Move</span></td>
+    			<td width="10%">
+					<span class="move">Move Row</span>
+					<span class="move-up">Move Up</span>
+					<input type="text" class="move-steps" value="1" />
+					<span class="move-down">Move Down</span>
+				</td>
     	
     			<td width="10%">An Input Field</td>
     			
@@ -64,10 +69,13 @@ row: '.row',
 add: '.add',
 remove: '.remove',
 move: '.move',
+move_up: '.move-up',
+move_down: '.move-down',
+move_steps: '.move-steps',
 template: '.template',
 is_sortable: true,
 before_add: null,
-after_add: after_add,
+after_add: self.after_add,
 before_remove: null,
 after_remove: null,
 sortable_options: null,
@@ -92,6 +100,15 @@ row_count_placeholder: '{{row-count-placeholder}}',
 
 <dt>move</dt>
 <dd>Specifies an element within the row which let's you reposition the current row.</dd>
+
+<dt>move_up</dt>
+<dd>Specifies an element clicking on which moves the row up</dd>
+
+<dt>move_down</dt>
+<dd>Specifies an element clicking on which moves the row down</dd>
+
+<dt>move_steps</dt>
+<dd>Specifies a field using which steps can be provided for the move_up and move_down functionality. An element will move up or down this number of steps. Default value is 1 step. -1 moves the item all the way up or down.</dd>
 
 <dt>template</dt>
 <dd>Specifies an element within the container which acts as a row template.</dd>
