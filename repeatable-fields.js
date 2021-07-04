@@ -25,7 +25,21 @@
 
 			$(container).attr('data-rf-row-count', row_count);
 		};
-		
+
+		self.after_remove = function(container, del_row) {
+			var row_total = $(container).attr('data-rf-row-count');
+
+			row_total--;
+
+			$('*', del_row).each(function() {
+				$.each(this.attributes, function() {
+					this.value = this.value.replace(self.settings.row_count_placeholder, row_total - 1);
+				});
+			});
+
+			$(container).attr('data-rf-row-count', row_total);
+		};
+
 		self.default_settings = {
 			wrapper: '.wrapper',
 			container: '.container',
@@ -41,7 +55,7 @@
 			before_add: null,
 			after_add: self.after_add,
 			before_remove: null,
-			after_remove: null,
+			after_remove: self.after_remove,
 			sortable_options: null,
 			row_count_placeholder: '{{row-count-placeholder}}',
 		};
@@ -104,7 +118,7 @@
 						self.settings.after_remove(container);
 					}
 				});
-			
+
 				if(self.settings.is_sortable === true) {
 					if(typeof $.ui !== 'undefined' && typeof $.ui.sortable !== 'undefined') {
 						var sortable_options = self.settings.sortable_options !== null ? self.settings.sortable_options : {};
@@ -120,10 +134,10 @@
 						}
 
 						var steps = 1;
-						
+
 						if($(event.target).siblings(self.settings.move_steps).length === 1) {
 							var custom_steps = parseInt($(event.target).siblings(self.settings.move_steps).val(), 10);
-							
+
 							if(isNaN(custom_steps) === false && (custom_steps > 0 || custom_steps === -1)) {
 								steps = custom_steps;
 							}
@@ -135,7 +149,7 @@
 
 						if($(event.target).is(self.settings.move_up) === true) {
 							var previous_row;
-							
+
 							for(i = 0; steps === -1 ? true : i < steps; i++) {
 								if(previous_row === undefined) {
 									if(current_row.prev().not(self.settings.template).length === 1) {
@@ -154,7 +168,7 @@
 									}
 								}
 							}
-							
+
 							if(previous_row !== undefined) {
 								previous_row.before(current_row);
 							}
@@ -194,7 +208,7 @@
 
 		// Initialize all repeatable field wrappers
 		self.initialize(self);
-		
+
 		return self;
 	};
 })(jQuery);

@@ -39,13 +39,13 @@ This plugin requires [jQuery](http://jquery.com/) and [jQuery UI Sortable](https
 					<input type="text" class="move-steps" value="1" />
 					<span class="move-down">Move Down</span>
 				</td>
-    	
+
     			<td width="10%">An Input Field</td>
-    			
+
     			<td width="70%">
     				<input type="text" name="an-input-field[{{row-count-placeholder}}]" />
     			</td>
-    			
+
     			<td width="10%"><span class="remove">Remove</span></td>
     		</tr>
     		</tbody>
@@ -77,7 +77,7 @@ is_sortable: true,
 before_add: null,
 after_add: self.after_add,
 before_remove: null,
-after_remove: null,
+after_remove: self.after_remove,
 sortable_options: null,
 row_count_placeholder: '{{row-count-placeholder}}',
 ```
