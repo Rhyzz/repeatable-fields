@@ -1,6 +1,6 @@
 # Repeatable Fields
 
-[Plugin's Homepage with Demo](http://www.rhyzz.com/repeatable-fields.html)
+[Plugin's Homepage with Demo](https://www.rhyzz.com/repeatable-fields.html)
 
 ## Description
 
